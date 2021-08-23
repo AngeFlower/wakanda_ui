@@ -1,31 +1,45 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/register">About</router-link>
-    </div>
+    <headers/>
     <router-view/>
+    <footers/>
   </div>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script >
+  import headers from "./components/header.vue"
+  import footers from "./components/footer.vue"
+  export default{
+    components:{
+          headers,footers,
+    },
+    mounted(){
+      console.log("avant localStorage")
+      console.log(this.$store.state.user)
+      var user = JSON.parse(localStorage.getItem('user'));
+      if(user){
+        this.$store.state.user = user;
+      }
+      console.log("apres localStorage")
+      console.log(this.$store.state.user)
+    },
 
-#nav {
-  padding: 30px;
-}
+    watch:{
+      "$store.state.user":{
+        deep:true,
+        handler(new_val){
+          if(!!new_val){
+            localStorage.setItem("user",JSON.stringify(new_val));
+          }
+          else{
+            localStorage.removeItem('user')
+          }
+        }
+      }
+    }
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
+  };
+</script>
 
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
+<style src="./assets/style.css">
 </style>

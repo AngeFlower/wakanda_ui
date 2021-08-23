@@ -18,14 +18,18 @@
         user :[],
         }
     },
+    mounted(){
+        console.log("Login mounted")
+    },
     methods:{
         enregistrer(){
             let data = new FormData()
             data.append('username',this.username)
             data.append('password',this.password)
-            axios.post('http://127.0.0.1:8000/api/login/',data,{'contentType':"multipat/form-data"})
+            axios.post(this.url+'/login/',data,{'contentType':"multipat/form-data"})
                 .then ((response)=>{
-                    this.user = response.data
+                    this.$store.state.user = response.data
+                    console.log(this.$store.state.user)
                     console.log(this.user)
                 })
                 .catch((error)=>{
