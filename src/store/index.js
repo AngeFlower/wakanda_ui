@@ -7,6 +7,8 @@ export default new Vuex.Store({
   state: {
   	user:[],
   	url:"http://127.0.0.1:8000/api",
+  	marque:[],
+  	categorie:[],
   },
   mutations: {
   },

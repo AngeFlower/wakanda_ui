@@ -45,7 +45,7 @@
                 data.append("tel",this.tel)
                 data.append("avatar",this.avatar)
 
-                axios.post("http://127.0.0.1:8000/api/utilisateur/",data,this.headers)
+                axios.post(this.url+'/utilisateur/',data,this.headers)
                 .then((response)=>{
                     console.log(response)
                 })

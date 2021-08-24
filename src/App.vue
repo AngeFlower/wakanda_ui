@@ -1,17 +1,20 @@
 <template>
   <div id="app">
-    <headers/>
+    <headers></headers>
     <router-view/>
-    <footers/>
+    <footers></footers>
   </div>
 </template>
 
 <script >
   import headers from "./components/header.vue"
   import footers from "./components/footer.vue"
+  import adduser from "./components/Add_user.vue"
+  import addproduit from "./components/Add_produit.vue"
+
   export default{
     components:{
-          headers,footers,
+          headers,footers,adduser,addproduit
     },
     mounted(){
       console.log("avant localStorage")
