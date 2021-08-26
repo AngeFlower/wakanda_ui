@@ -4,6 +4,9 @@ import Home from '../views/Home.vue'
 import Register from '../components/Register.vue'
 import Login from '../components/Login.vue'
 import Produit from '../views/Produits.vue'
+import Utilisateur from '../views/Utilisateur.vue'
+import produitdet from '../components/produit_detail.vue'
+
 
 Vue.use(VueRouter)
 
@@ -30,6 +33,17 @@ const routes = [
     path: '/produit',
     name: 'Produit',
     component: Produit
+  },
+ {
+    path: '/produit/:id',
+    name: 'Produit',
+    component: produitdet
+  },
+
+  {
+    path: '/utilisateur',
+    name: 'Utilisateur',
+    component: Utilisateur
   },
 ]
 

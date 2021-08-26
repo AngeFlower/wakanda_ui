@@ -4,7 +4,7 @@
 </template>
 
 <script type="">
-	import adduser from "/..components/Add_user"
+	import adduser from "../components/Add_user"
 	export default{
 		components:{
 			adduser,

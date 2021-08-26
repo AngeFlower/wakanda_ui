@@ -14,13 +14,12 @@
         <input ref="file" @change="e=>Fichier(e)" type="file" name=""><br>
         <button @click="ajouter">Enregistrer</button>
 
-
-
 	</div>
 	
 </template>
 
 <script >
+	import axios from 'axios'
 	export default{
 		data(){
 			return{

@@ -1,21 +1,30 @@
 <template>
-    <div>
-    <label>Username</label>
-    <input type="text" v-model="username" name="">
-    <label>First_name</label>
-    <input type="text" v-model="first_name" name="">
-    <label>Last_name</label>
-    <input type="text" v-model="last_name" name="">
-    <label>Password</label>
-    <input type="password" v-model="password" name="">
-    <label>Email</label>
-    <input type="email" v-model="email" name="">
-    <label>Tel</label>
-    <input type="text" v-model="tel" name="">
-    <label>Profil</label>
-    <input type="file" accept=".jpeg,.jpg,.png" @change="e=>procesImage(e)" name="">
-    <button @click="enregistrer">Enregistrer</button>
+ <div>
+    <div class="account-page">
+        <div class="container">
+            <div class="row">
+                <div class="col-2">
+                    <div class="form-container">
+                        <div class="form-btn">
+                            <span onclick="register()">Sign Up</span>
+                            <hr id="Indicator">
+                        </div>
+                        <form @submit.prevent="Enregistrer">
+                            <input v-model="username" type="text" name="username" placeholder="username">
+                            <input v-model="first_name"  type="text" name="first_name" placeholder="first_name">
+                            <input v-model="last_name" type="text" name="last_name" placeholder="last_name">
+                            <input v-model="password"  type="password" name="password" placeholder="password">
+                            <input v-model="email"  type="email" name="email" placeholder="email">
+                            <input v-model="tel"  type="text" name="tel" placeholder="tel">
+                            <input type="file" accept=".jpeg,.jpg,.png" @change="e=>procesImage(e)" name="">
+                            <button @click="Enregistrer" name="enregistrer" type="submit" class="btn">Enregistrer</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+</div>
 </template>
 
 <script >
@@ -33,7 +42,7 @@
         }
     },
     methods:{
-        enregistrer(){
+        Enregistrer(){
             let data = new FormData()
             data.append('username',this.username)
             data.append('first_name',this.first_name)
@@ -45,6 +54,7 @@
             axios.post('http://127.0.0.1:8000/api/register/',data,{'contentType':"multipat/form-data"})
                 .then ((response)=>{
                     console.log(response)
+                    this.$router.push('/')
                 })
                 .catch((error)=>{
                     console.log(error)
