@@ -1,13 +1,18 @@
 <template>
+	<div>
 	<adduser></adduser>
+	<listuser></listuser>
+	</div>
+	
 	
 </template>
 
 <script type="">
 	import adduser from "../components/Add_user"
+	import listuser from "../components/List_user"
 	export default{
 		components:{
-			adduser,
+			adduser,listuser,
 		}
 
 	}

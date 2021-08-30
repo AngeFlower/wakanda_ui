@@ -1,27 +1,24 @@
 <template>
-	<div>
-		<label>name</label>
-		<input v-model ="name" type="text" name="name">
-		<label>prix</label>
-		<input v-model ="prix" type="integer" name="prix">
-		<label>date</label>
-		<input v-model ="date" type="date" name="date">
+	<div class="form-container" >
+		<input class="form-control" v-model ="name" type="text" name="name" placeholder="name">
+		<input class="form-control" v-model ="prix" type="integer" name="prix" placeholder="prix">
+		<input class="form-control" v-model ="date" type="date" name="date" placeholder="date">
 		<label>categorie</label>
-		<select v-model = "categorie">
+		<select class="form-control" v-model = "categorie" >
 			<option disabled>.................</option>
 			<option v-for="categorie in $store.state.categorie" :key="categorie.id" :value="categorie.id">{{categorie.name}}</option>
-		</select>
+		</select><br>
 		<label>marque</label>
-		<select v-model = "marque">
+		<select class="form-control" v-model = "marque" >
 			<option disabled>.................</option>
 			<option v-for="marque in $store.state.marque" :key="marque.id" :value="marque.id">{{marque.name}}</option>
-		</select>
+		</select><br>
 		<label>image_devant</label>
-		<input ref="file" @change="e=>im1(e)" type="file" name="">
+		<input class="form-control-file" ref="file" @change="e=>im1(e)" type="file" name="image_devant" >
 		<label>image_arriere</label>
-		<input ref="file" @change="e=>im2(e)" type="file" name="">
+		<input class="form-control-file" ref="file" @change="e=>im2(e)" type="file" name="image_arriere" >
 		<label>image_face</label>
-		<input ref="file" @change="e=>im3(e)" type="file" name="">
+		<input class="form-control-file" ref="file" @change="e=>im3(e)" type="file" name="image_face">
 		<button @click="ajouter">Enregistrer</button>
 	</div>
 	

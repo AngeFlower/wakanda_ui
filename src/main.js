@@ -30,6 +30,12 @@ Vue.mixin({
 	computed:{
 		url(){
 			return this.$store.state.url
+		},
+		connected_user(){
+			return this.$store.state.user && this.$store.state.user.length >0
+		},
+		is_admin(){
+			return this.$store.state.user.is_admin
 		}
 	}
 })

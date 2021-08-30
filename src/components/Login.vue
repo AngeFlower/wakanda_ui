@@ -45,7 +45,7 @@
                     this.$store.state.user = response.data
                     console.log(this.$store.state.user)
                     console.log(this.user)
-                    this.$router.push('/produit')
+                    window.location="/"
                 })
                 .catch((error)=>{
                     console.log(error)

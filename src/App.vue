@@ -15,13 +15,10 @@
           headers,footers,
     },
     mounted(){
-      console.log("avant localStorage")
-      console.log(this.$store.state.user)
       var user = JSON.parse(localStorage.getItem('user'));
       if(user){
         this.$store.state.user = user;
       }
-      console.log("apres localStorage")
       console.log(this.$store.state.user)
     },
 

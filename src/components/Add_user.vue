@@ -36,6 +36,7 @@
                 this.avatar=e.target.files[0]
             },
             ajouter(){
+                console.log(this.$store.state.user)
             	let data = new FormData()
                 data.append("user.username",this.username)
                 data.append("user.first_name",this.firstname)
