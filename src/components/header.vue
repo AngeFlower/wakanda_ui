@@ -16,10 +16,26 @@
                         <li><a href="">Contacts</a></li>
                         <li><a href="">Account</a></li>
                         <li v-if="$store.state.user.is_admin">
-                            <router-link :to="{name:'Add_produit'}">
-                                <a>Add_produit</a>
+                            <router-link :to="{name:'Categorie'}">
+                                <a>Categories</a>
                             </router-link>
                         </li>
+                          <li v-if="$store.state.user.is_admin">
+                            <router-link :to="{name:'Marque'}">
+                                <a>Marques</a>
+                            </router-link>
+                        </li>
+                         <li v-if="$store.state.user.is_admin">
+                            <router-link :to="{name:'Utilisateur'}">
+                                <a>Utilisateurs</a>
+                            </router-link>
+                        </li>
+                          <li v-if="$store.state.user.length !=0">
+                            <router-link :to="{name:'Cart'}">
+                                <a>Cart <SPAN id="cart">{{$store.state.cart.length}}</SPAN></a>
+                            </router-link>
+                        </li>
+
                         <li @click="deconnexion" v-if="$store.state.user.length !=0"><a >Deconnexion</a></li>
                         <li v-if="$store.state.user.length == 0">
                             <router-link :to="{name:'Login'}">
@@ -52,6 +68,14 @@
 	
 </script>
 
-<style >
+<style scoped>
+    #cart{
+        width: 10px;
+        height: 10px;
+        padding: 5px;
+        background-color: red;
+        color: white; 
+        border-radius: 50%;
+    }
 	
 </style>

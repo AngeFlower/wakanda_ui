@@ -1,16 +1,28 @@
 <template>
 	<div>
-				<listproduit></listproduit>
+		<button v-if="$store.state.user.is_admin" class="btn" @click="show=!show">Ajouter les produits</button>
+		<addproduit v-if="show"></addproduit>
+		<listproduit></listproduit>
 	</div>
 </template>
 
 <script type="">
 	import listproduit from "../components/List_produit"
-	import detailproduit from "../components/produit_detail"
-	
+	import addproduit from "../components/Add_produit"	
 	export default{
+		mounted(){
+			if($store.state.user.length==0){
+				this.router.push("/login")
+			}
+		},
+		data(){
+			return{
+				show:false,
+			}
+
+		},
 		components:{
-			listproduit,
+			listproduit,addproduit
 		}
 
 	}

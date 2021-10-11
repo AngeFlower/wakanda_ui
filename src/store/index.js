@@ -11,6 +11,8 @@ export default new Vuex.Store({
   	categorie:[],
   	produits:[],
     utilisateur:[],
+    marque:[],
+    cart:[],
   },
   mutations: {
   },

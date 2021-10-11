@@ -1,5 +1,5 @@
 <template>
-	<div class="form-container" >
+	<div class="form-container product-form" >
 		<input class="form-control" v-model ="name" type="text" name="name" placeholder="name">
 		<input class="form-control" v-model ="prix" type="integer" name="prix" placeholder="prix">
 		<input class="form-control" v-model ="date" type="date" name="date" placeholder="date">
@@ -19,7 +19,7 @@
 		<input class="form-control-file" ref="file" @change="e=>im2(e)" type="file" name="image_arriere" >
 		<label>image_face</label>
 		<input class="form-control-file" ref="file" @change="e=>im3(e)" type="file" name="image_face">
-		<button @click="ajouter">Enregistrer</button>
+		<button class="btn" @click="ajouter">Enregistrer</button>
 	</div>
 	
 </template>
@@ -69,7 +69,7 @@
 
                 axios.post(this.url+'/produit/',data,this.headers)
                 .then((response)=>{
-                    console.log(response)
+                    this.$store.state.produits.push(response.data)
                 })
                 .catch((error)=>{
                     console.log(error)
@@ -103,7 +103,11 @@
 
 </script>
 
-<style type="">
+<style scoped="">
+	.product-form{
+		width: 400px;
+		height: auto;
+	} 
 	
 
 </style>

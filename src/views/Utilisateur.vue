@@ -1,6 +1,7 @@
 <template>
 	<div>
-	<adduser></adduser>
+		<button class="btn" @click="show=!show">Ajouter les utilisateurs</button>
+	<adduser v-if="show"></adduser>
 	<listuser></listuser>
 	</div>
 	
@@ -11,6 +12,16 @@
 	import adduser from "../components/Add_user"
 	import listuser from "../components/List_user"
 	export default{
+			data(){
+			return{
+				show:false,
+			}
+		},
+		mounted(){
+			if(!this.$store.state.user.is_admin){
+				this.$router.push("/")
+			}
+		},
 		components:{
 			adduser,listuser,
 		}

@@ -6,7 +6,10 @@ import Login from '../components/Login.vue'
 import Produit from '../views/Produits.vue'
 import Utilisateur from '../views/Utilisateur.vue'
 import produitdet from '../components/produit_detail.vue'
-import addproduit from '../components/Add_produit.vue'
+import Marque from '../views/Marque.vue'
+import Categorie from '../views/Categorie.vue'
+import Cart from '../components/Add_cart.vue'
+
 
 
 Vue.use(VueRouter)
@@ -17,10 +20,15 @@ const routes = [
     name: 'Home',
     component: Home
   },
+  {
+    path: '/marque',
+    name: 'Marque',
+    component: Marque
+  },
    {
-    path: '/addproduit',
-    name: 'Add_produit',
-    component: addproduit
+    path: '/categorie',
+    name: 'Categorie',
+    component: Categorie
   },
 
   {
@@ -50,6 +58,11 @@ const routes = [
     path: '/utilisateur',
     name: 'Utilisateur',
     component: Utilisateur
+  },
+    {
+    path: '/cart',
+    name: 'Cart',
+    component: Cart
   },
 ]
 
