@@ -30,9 +30,10 @@
                                 <a>Utilisateurs</a>
                             </router-link>
                         </li>
-                          <li v-if="$store.state.user.length !=0">
+                          <li v-if="$store.state.user.length !=0" class="cart">
                             <router-link :to="{name:'Cart'}">
-                                <a>Cart <SPAN id="cart">{{$store.state.cart.length}}</SPAN></a>
+                                <i class="mdi mdi-cart"></i>
+                                <span id="cart">{{$store.state.cart.length}}</span>
                             </router-link>
                         </li>
 
@@ -69,13 +70,20 @@
 </script>
 
 <style scoped>
+    .mdi-cart {
+        font-size: 24px;
+    }
     #cart{
-        width: 10px;
-        height: 10px;
-        padding: 5px;
+        position: absolute;
+        top:-7px;left: 70%;
+        display: inline-block;
+        padding: 2px 5px;
         background-color: red;
         color: white; 
         border-radius: 50%;
+        font-size: 12px;
     }
-	
+	.cart {
+        position: relative;
+    }
 </style>

@@ -1,10 +1,10 @@
 <template>
    
-    <div class="account-page">
-        <div class="container">
+    <div class="account-page ">
+        <div class="container ">
             <div class="row">
                 <div class="col-2">
-                    <div class="form-container">
+                    <div class="form-container login-form ">
                         <div class="form-btn">
                             <span onclick="login()">Login</span>
                             <hr id="Indicator">
@@ -57,5 +57,9 @@
 </script>
 
 <style scoped>
+.login-form{
+        height: 400px;
+    }
+
 
 </style>

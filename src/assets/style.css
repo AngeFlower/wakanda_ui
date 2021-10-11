@@ -436,7 +436,7 @@ form .btn:focus{
     border: none;
     background: coral;
     margin-top: 8px;
-    transform: translateX(100px);
+    /*transform: translateX(-30px);*/
     transition: transform 1s;
 }
 form a{
